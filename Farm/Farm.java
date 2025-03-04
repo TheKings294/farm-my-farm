@@ -1,3 +1,5 @@
+package Farm;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,7 @@ public class Farm {
     public void setSoySeed(int soySeed) {
         this.soySeed = soySeed;
     }
+
     public int getWheatSeed() {
         return this.wheatSeed;
     }
@@ -58,21 +61,53 @@ public class Farm {
     public int getSoySeed() {
         return this.soySeed;
     }
+
+    public void setWheatHarvest(int wheatHarvest) {
+        this.wheatHarvest = wheatHarvest;
+    }
+    public void setBarleyHarvest(int barleyHarvest) {
+        this.barleyHarvest = barleyHarvest;
+    }
+    public void setRapeseedHarvest(int rapeseedHarvest) {
+        this.rapeseedHarvest = rapeseedHarvest;
+    }
+    public void setMaizeHarvest(int maizeHarvest) {
+        this.maizeHarvest = maizeHarvest;
+    }
+    public void setSoyHarvest(int soyHarvest) {
+        this.soyHarvest = soyHarvest;
+    }
+
+    public int getWheatHarvest() {
+        return this.wheatHarvest;
+    }
+    public int getBarleyHarvest() {
+        return this.barleyHarvest;
+    }
+    public int getRapeseedHarvest() {
+        return this.rapeseedHarvest;
+    }
+    public int getMaizeHarvest() {
+        return this.maizeHarvest;
+    }
+    public int getSoyHarvest() {
+        return this.soyHarvest;
+    }
     public String[] getSeed() {
         List<String> seed = new ArrayList<String>();
-        if (this.wheatSeed < 0) {
+        if (this.wheatSeed > 0) {
             seed.add("Ble");
         }
-        if (this.barleySeed < 0) {
+        if (this.barleySeed > 0) {
             seed.add("Orge");
         }
-        if (this.rapeseedSeed < 0) {
+        if (this.rapeseedSeed > 0) {
             seed.add("Colza");
         }
-        if (this.maizeSeed < 0) {
+        if (this.maizeSeed > 0) {
             seed.add("Mais");
         }
-        if (this.soySeed < 0) {
+        if (this.soySeed > 0) {
            seed.add("Soja");
         }
 

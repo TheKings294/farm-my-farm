@@ -4,12 +4,12 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="204.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Modal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="277.0" prefWidth="204.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Modal.Modal">
    <children>
       <Button fx:id="closeModalButton" layoutX="2.0" layoutY="244.0" mnemonicParsing="false" onAction="#closeModal" prefHeight="26.0" prefWidth="55.0" text="Close" />
-      <ComboBox fx:id="ComboBoxVegetal" layoutX="23.0" layoutY="29.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxVegetal" layoutX="23.0" layoutY="29.0" prefWidth="150.0" />
       <Button fx:id="seedBtn" layoutX="71.0" layoutY="62.0" mnemonicParsing="false" text="Planter" />
       <ComboBox fx:id="ComboBoxAnimals" layoutX="23.0" layoutY="118.0" prefWidth="150.0" />
-      <Button fx:id="AnimalsBtn" layoutX="68.0" layoutY="158.0" mnemonicParsing="false" text="Installer" />
+      <Button fx:id="animalsBtn" layoutX="68.0" layoutY="158.0" mnemonicParsing="false" text="Installer" />
    </children>
 </Pane>
