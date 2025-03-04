@@ -22,7 +22,7 @@
                         <Font name="System Bold" size="11.0" />
                      </font>
                   </Label>
-                  <Label fx:id="wheatSeed" prefHeight="17.0" prefWidth="99.0" text="Graine Blé :">
+                  <Label fx:id="wheatSeed" prefHeight="14.0" prefWidth="99.0" text="Graine Blé :">
                      <font>
                         <Font size="11.0" />
                      </font>

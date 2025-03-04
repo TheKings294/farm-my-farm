@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import vegetal.Wheat;
+import vegetal.*;
 
 
 public class Modal {
@@ -70,16 +70,24 @@ public class Modal {
                        closeModal();
                        break;
                    case "Orge":
-                       System.out.println("Orge");
+                       Barley barley = new Barley("Céréale", 100, 20);
+                       barley.plant(Btn, farm);
+                       closeModal();
                        break;
                    case "Colza":
-                       System.out.println("Colza");
+                       Rapeseed rapeseed = new Rapeseed("Céréale", 100, 20);
+                       rapeseed.plant(Btn, farm);
+                       closeModal();
                        break;
                    case "Mais":
-                       System.out.println("Mais");
+                       Maize maize = new Maize("Céréale", 100, 20);
+                       maize.plant(Btn, farm);
+                       closeModal();
                        break;
                    case "Soja":
-                       System.out.println("Soja");
+                       Soy soy = new Soy("Céréale", 100, 20);
+                       soy.plant(Btn, farm);
+                       closeModal();
                        break;
                    default:
                        break;
