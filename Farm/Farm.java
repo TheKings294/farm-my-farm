@@ -1,5 +1,8 @@
 package Farm;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +10,18 @@ public class Farm {
     private int BankAcount;
 
     /*Seed stock*/
-    private int wheatSeed;
-    private int barleySeed;
-    private int rapeseedSeed;
-    private int maizeSeed;
-    private int soySeed;
+    private IntegerProperty wheatSeed = new SimpleIntegerProperty();
+    private IntegerProperty barleySeed = new SimpleIntegerProperty();
+    private IntegerProperty rapeseedSeed = new SimpleIntegerProperty();
+    private IntegerProperty maizeSeed = new SimpleIntegerProperty();
+    private IntegerProperty soySeed = new SimpleIntegerProperty();
 
     /*Harvest Stock*/
-    private int wheatHarvest;
-    private int barleyHarvest;
-    private int rapeseedHarvest;
-    private int maizeHarvest;
-    private int soyHarvest;
+    private IntegerProperty wheatHarvest = new SimpleIntegerProperty();
+    private IntegerProperty barleyHarvest = new SimpleIntegerProperty();
+    private IntegerProperty rapeseedHarvest = new SimpleIntegerProperty();
+    private IntegerProperty maizeHarvest = new SimpleIntegerProperty();
+    private IntegerProperty soyHarvest = new SimpleIntegerProperty();
 
     /*Animals*/
     private int cowCount;
@@ -31,83 +34,114 @@ public class Farm {
         this.BankAcount = bankAcount;
     }
     public void setWheatSeed(int wheatSeed) {
-        this.wheatSeed = wheatSeed;
+        this.wheatSeed.set(wheatSeed);
     }
     public void setBarleySeed(int barleySeed) {
-        this.barleySeed = barleySeed;
+        this.barleySeed.set(barleySeed);
     }
     public void setRapeseedSeed(int rapeseedSeed) {
-        this.rapeseedSeed = rapeseedSeed;
+        this.rapeseedSeed.set(rapeseedSeed);
     }
     public void setMaizeSeed(int maizeSeed) {
-        this.maizeSeed = maizeSeed;
+        this.maizeSeed.set(maizeSeed);
     }
     public void setSoySeed(int soySeed) {
-        this.soySeed = soySeed;
+        this.soySeed.set(soySeed);
     }
 
     public int getWheatSeed() {
-        return this.wheatSeed;
+        return this.wheatSeed.getValue();
     }
     public int getBarleySeed() {
-        return this.barleySeed;
+        return this.barleySeed.getValue();
     }
     public int getRapeseedSeed() {
-        return this.rapeseedSeed;
+        return this.rapeseedSeed.getValue();
     }
     public int getMaizeSeed() {
-        return this.maizeSeed;
+        return this.maizeSeed.getValue();
     }
     public int getSoySeed() {
-        return this.soySeed;
+        return this.soySeed.getValue();
     }
 
     public void setWheatHarvest(int wheatHarvest) {
-        this.wheatHarvest = wheatHarvest;
+        this.wheatHarvest.set(wheatHarvest);
     }
     public void setBarleyHarvest(int barleyHarvest) {
-        this.barleyHarvest = barleyHarvest;
+        this.barleyHarvest.set(barleyHarvest);
     }
     public void setRapeseedHarvest(int rapeseedHarvest) {
-        this.rapeseedHarvest = rapeseedHarvest;
+        this.rapeseedHarvest.set(rapeseedHarvest);
     }
     public void setMaizeHarvest(int maizeHarvest) {
-        this.maizeHarvest = maizeHarvest;
+        this.maizeHarvest.set(maizeHarvest);
     }
     public void setSoyHarvest(int soyHarvest) {
-        this.soyHarvest = soyHarvest;
+        this.soyHarvest.set(soyHarvest);
     }
 
     public int getWheatHarvest() {
-        return this.wheatHarvest;
+        return this.wheatHarvest.getValue();
     }
     public int getBarleyHarvest() {
-        return this.barleyHarvest;
+        return this.barleyHarvest.getValue();
     }
     public int getRapeseedHarvest() {
-        return this.rapeseedHarvest;
+        return this.rapeseedHarvest.getValue();
     }
     public int getMaizeHarvest() {
-        return this.maizeHarvest;
+        return this.maizeHarvest.getValue();
     }
     public int getSoyHarvest() {
+        return this.soyHarvest.getValue();
+    }
+
+    public IntegerProperty getWheatSeedProperty() {
+        return this.wheatSeed;
+    }
+    public IntegerProperty getBarleySeedProperty() {
+        return this.barleySeed;
+    }
+    public IntegerProperty getRapeseedSeedProperty() {
+        return this.rapeseedSeed;
+    }
+    public IntegerProperty getMaizeSeedProperty() {
+        return this.maizeSeed;
+    }
+    public IntegerProperty getSoySeedProperty() {
+        return this.soySeed;
+    }
+    public IntegerProperty getWheatHarvestProperty() {
+        return this.wheatHarvest;
+    }
+    public IntegerProperty getBarleyHarvestProperty() {
+        return this.barleyHarvest;
+    }
+    public IntegerProperty getRapeseedHarvestProperty() {
+        return this.rapeseedHarvest;
+    }
+    public IntegerProperty getMaizeHarvestProperty() {
+        return this.maizeHarvest;
+    }
+    public IntegerProperty getSoyHarvestProperty() {
         return this.soyHarvest;
     }
     public String[] getSeed() {
         List<String> seed = new ArrayList<String>();
-        if (this.wheatSeed > 0) {
+        if (this.wheatSeed.getValue() > 0) {
             seed.add("Ble");
         }
-        if (this.barleySeed > 0) {
+        if (this.barleySeed.getValue() > 0) {
             seed.add("Orge");
         }
-        if (this.rapeseedSeed > 0) {
+        if (this.rapeseedSeed.getValue() > 0) {
             seed.add("Colza");
         }
-        if (this.maizeSeed > 0) {
+        if (this.maizeSeed.getValue() > 0) {
             seed.add("Mais");
         }
-        if (this.soySeed > 0) {
+        if (this.soySeed.getValue() > 0) {
            seed.add("Soja");
         }
 

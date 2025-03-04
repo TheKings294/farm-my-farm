@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -12,11 +13,29 @@ import javafx.stage.Stage;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import Modal.*;
-
 public class Main extends Application {
     @FXML
     private GridPane gridPane;
+    @FXML
+    private Label wheatSeed;
+    @FXML
+    private Label barleySeed;
+    @FXML
+    private Label rapeseedSeed;
+    @FXML
+    private Label maizeSeed;
+    @FXML
+    private Label soySeed;
+    @FXML
+    private Label wheatHarvest;
+    @FXML
+    private Label barleyHarvest;
+    @FXML
+    private Label rapeseedHarvest;
+    @FXML
+    private Label maizeHarvest;
+    @FXML
+    private Label soyHarvest;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -33,6 +52,17 @@ public class Main extends Application {
     }
     public void initialize() {
         Farm farm = new Farm(500);
+        wheatSeed.textProperty().bind(farm.getWheatSeedProperty().asString());
+        barleySeed.textProperty().bind(farm.getBarleySeedProperty().asString());
+        rapeseedSeed.textProperty().bind(farm.getRapeseedSeedProperty().asString());
+        maizeSeed.textProperty().bind(farm.getMaizeSeedProperty().asString());
+        soySeed.textProperty().bind(farm.getSoySeedProperty().asString());
+        wheatHarvest.textProperty().bind(farm.getWheatHarvestProperty().asString());
+        barleyHarvest.textProperty().bind(farm.getBarleyHarvestProperty().asString());
+        rapeseedHarvest.textProperty().bind(farm.getRapeseedHarvestProperty().asString());
+        maizeHarvest.textProperty().bind(farm.getMaizeHarvestProperty().asString());
+        soyHarvest.textProperty().bind(farm.getSoyHarvestProperty().asString());
+
         Path pathToSave = Path.of("./save/farm.json");
 
         for (int i = 0; i < 12; i++) {
@@ -49,7 +79,6 @@ public class Main extends Application {
         farm.setWheatSeed(200);
         farm.setSoySeed(200);
         farm.setBarleySeed(200);
-        farm.setSoySeed(200);
         farm.setMaizeSeed(200);
         farm.setRapeseedSeed(200);
         if (Files.exists(pathToSave)) {

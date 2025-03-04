@@ -65,7 +65,7 @@ public class Modal {
             seedBtn.setOnMouseClicked(e -> {
                switch (comboBoxVegetal.getValue()) {
                    case "Ble":
-                       Wheat wheat = new Wheat("Céréale", 10, 20);
+                       Wheat wheat = new Wheat("Céréale", 100, 20);
                        wheat.plant(Btn, farm);
                        closeModal();
                        break;

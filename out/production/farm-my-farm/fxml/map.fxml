@@ -1,14 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.13795986622073578" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label layoutX="3.0" layoutY="56.0" prefHeight="17.0" prefWidth="112.0" text="Bank Account :" />
+            <Label alignment="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="114.0" text="Farm My Farm" textAlignment="CENTER" />
+            <VBox layoutX="10.0" layoutY="89.0" prefHeight="89.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="99.0" text="Graines :">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="wheatSeed" prefHeight="17.0" prefWidth="99.0" text="Graine Blé :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="barleySeed" prefHeight="17.0" prefWidth="99.0" text="Graine Orge :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="rapeseedSeed" prefHeight="17.0" prefWidth="99.0" text="Graine Colza :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="maizeSeed" prefHeight="17.0" prefWidth="99.0" text="Graine Mais :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="soySeed" prefHeight="17.0" prefWidth="99.0" text="Graine Soja:">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="9.0" layoutY="242.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="99.0" text="Recoltes :">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="wheatHarvest" prefHeight="17.0" prefWidth="99.0" text="Recolte Blé :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="barleyHarvest" prefHeight="17.0" prefWidth="99.0" text="Recolte Orge :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="rapeseedHarvest" prefHeight="17.0" prefWidth="99.0" text="Recolte Colza :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="maizeHarvest" prefHeight="17.0" prefWidth="99.0" text="Recolte Mais :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="soyHarvest" prefHeight="17.0" prefWidth="99.0" text="Recolte Soja :">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
             <GridPane fx:id="gridPane" gridLinesVisible="true" layoutX="-1.0" prefHeight="698.0" prefWidth="771.0">

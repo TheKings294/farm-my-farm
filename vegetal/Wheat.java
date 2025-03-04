@@ -30,12 +30,13 @@ public class Wheat extends Vegetal {
                 this.harvest(farm,button, dbName);
             });
         }));
+        farm.setWheatSeed(farm.getWheatSeed() - 10);
         timeline.setCycleCount(1);
         timeline.play();
     }
     @Override
     public void harvest(Farm farm, Button btn, String btnName) {
-        farm.setWheatHarvest(1 * this.yield);
+        farm.setWheatHarvest(farm.getWheatHarvest() + (1 * this.yield));
         btn.setText(btnName);
         btn.setOnAction(e -> {
             Modal.showModal(btn.getText(), farm, (Button) e.getSource());
