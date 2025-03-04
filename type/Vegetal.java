@@ -1,7 +1,11 @@
 package type;
 
-import cycle.Cycle;
+public abstract class Vegetal {
+    private String type;
+    private int timeToGrowth;
+    private int yield;
+    private String[] images;
 
-public class Vegetal extends Cycle {
-
+    public abstract void plant();
+    public abstract int harvest();
 }
