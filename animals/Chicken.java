@@ -16,8 +16,10 @@ public class Chicken extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        this.grow(farm, button);
-        button.setText("c");
+        if (farm.getWheatHarvest() > 10) {
+            this.grow(farm, button);
+            button.setText("c");
+        }
     }
     @Override
     public void collectProduction(Farm farm) {
@@ -25,6 +27,7 @@ public class Chicken extends Animals {
     }
     @Override
     protected void grow(Farm farm, Button button) {
+        farm.setWheatHarvest(farm.getWheatHarvest() - 10);
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrow), event -> {
             this.productions(farm, button);
             farm.setBabyChickenCount(farm.getBabyChickenCount() - 1);
@@ -38,7 +41,10 @@ public class Chicken extends Animals {
     protected void productions(Farm farm, Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(production), event -> {
             this.collectProduction(farm);
-            this.productions(farm, button);
+            if (farm.getWheatHarvest() >= 10) {
+                farm.setWheatHarvest(farm.getWheatHarvest() - 10);
+                this.productions(farm, button);
+            }
         }));
         timeline.setCycleCount(1);
         timeline.play();

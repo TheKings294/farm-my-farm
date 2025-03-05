@@ -38,7 +38,11 @@ public class Cow extends Animals {
     protected void productions(Farm farm, Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(production), event -> {
             this.collectProduction(farm);
-            this.productions(farm, button);
+            if (farm.getMaizeHarvest() >= 10 && farm.getWheatHarvest() >= 10) {
+                farm.setWheatHarvest(farm.getWheatHarvest() - 10);
+                farm.setMaizeHarvest(farm.getMaizeHarvest() - 10);
+                this.productions(farm, button);
+            }
         }));
         timeline.setCycleCount(1);
         timeline.play();

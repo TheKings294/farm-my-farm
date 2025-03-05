@@ -17,19 +17,21 @@ public class Barley extends Vegetal {
     }
     @Override
     public void plant(Button button, Farm farm) {
-        String dbName = button.getText();
-        button.setText("o");
-        button.setDisable(true);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
-            button.setText("O");
-            button.setDisable(false);
-            button.setOnAction(event -> {
-                this.harvest(farm,button, dbName);
-            });
-        }));
-        farm.setBarleySeed(farm.getBarleySeed() - 10);
-        timeline.setCycleCount(1);
-        timeline.play();
+        if (farm.getWheatSeed() >= 10) {
+            String dbName = button.getText();
+            button.setText("o");
+            button.setDisable(true);
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
+                button.setText("O");
+                button.setDisable(false);
+                button.setOnAction(event -> {
+                    this.harvest(farm,button, dbName);
+                });
+            }));
+            farm.setBarleySeed(farm.getBarleySeed() - 10);
+            timeline.setCycleCount(1);
+            timeline.play();
+        }
     }
     @Override
     public void harvest(Farm farm, Button btn, String btnName) {

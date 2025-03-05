@@ -17,19 +17,21 @@ public class Soy extends Vegetal {
     }
     @Override
     public void plant(Button button, Farm farm) {
-        String dbName = button.getText();
-        button.setText("s");
-        button.setDisable(true);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
-            button.setText("S");
-            button.setDisable(false);
-            button.setOnAction(event -> {
-                this.harvest(farm,button, dbName);
-            });
-        }));
-        farm.setSoySeed(farm.getSoySeed() - 10);
-        timeline.setCycleCount(1);
-        timeline.play();
+        if (farm.getSoySeed() >= 10) {
+            String dbName = button.getText();
+            button.setText("s");
+            button.setDisable(true);
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
+                button.setText("S");
+                button.setDisable(false);
+                button.setOnAction(event -> {
+                    this.harvest(farm,button, dbName);
+                });
+            }));
+            farm.setSoySeed(farm.getSoySeed() - 10);
+            timeline.setCycleCount(1);
+            timeline.play();
+        }
     }
     @Override
     public void harvest(Farm farm, Button btn, String btnName) {

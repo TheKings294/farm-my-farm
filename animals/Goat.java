@@ -38,7 +38,10 @@ public class Goat extends Animals {
     protected void productions(Farm farm, Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(production), event -> {
             this.collectProduction(farm);
-            this.productions(farm, button);
+            if (farm.getRapeseedHarvest() >= 10) {
+                farm.setRapeseedHarvest(farm.getRapeseedHarvest() - 10);
+                this.productions(farm, button);
+            }
         }));
         timeline.setCycleCount(1);
         timeline.play();

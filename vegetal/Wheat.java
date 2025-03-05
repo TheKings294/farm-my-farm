@@ -17,19 +17,21 @@ public class Wheat extends Vegetal {
     }
     @Override
     public void plant(Button button, Farm farm) {
-        String dbName = button.getText();
-        button.setText("b");
-        button.setDisable(true);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
-            button.setText("B");
-            button.setDisable(false);
-            button.setOnAction(event -> {
-                this.harvest(farm,button, dbName);
-            });
-        }));
-        farm.setWheatSeed(farm.getWheatSeed() - 10);
-        timeline.setCycleCount(1);
-        timeline.play();
+        if (farm.getWheatSeed() >= 10) {
+            String dbName = button.getText();
+            button.setText("b");
+            button.setDisable(true);
+            Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrowth), e -> {
+                button.setText("B");
+                button.setDisable(false);
+                button.setOnAction(event -> {
+                    this.harvest(farm,button, dbName);
+                });
+            }));
+            farm.setWheatSeed(farm.getWheatSeed() - 10);
+            timeline.setCycleCount(1);
+            timeline.play();
+        }
     }
     @Override
     public void harvest(Farm farm, Button btn, String btnName) {
