@@ -1,7 +1,7 @@
 package Modal;
 
 import Farm.Farm;
-import animals.Cow;
+import animals.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -105,6 +105,26 @@ public class Modal {
                     case "Vaches":
                         Cow cow = new Cow("Vache", 10, 10, "Lait");
                         cow.install(farm, Btn);
+                        closeModal();
+                        break;
+                    case "Moutons":
+                        Sheep sheep = new Sheep("Vache", 10, 10, "Lait");
+                        sheep.install(farm, Btn);
+                        closeModal();
+                        break;
+                    case "Chevres":
+                        Goat goat = new Goat("Vache", 10, 10, "Lait");
+                        goat.install(farm, Btn);
+                        closeModal();
+                        break;
+                    case "Cochons":
+                        Pig pig = new Pig("Vache", 10, 10, "Lait");
+                        pig.install(farm, Btn);
+                        closeModal();
+                        break;
+                    case "Poules":
+                        Chicken chicken = new Chicken("Vache", 10, 10, "Lait");
+                        chicken.install(farm, Btn);
                         closeModal();
                         break;
                     default:

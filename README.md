@@ -1,2 +1,2 @@
-# Farm.Farm My Farm.Farm
+# Farm My Farm
 Projet en java avce javaFX pour le graphique

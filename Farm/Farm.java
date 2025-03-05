@@ -306,7 +306,7 @@ public class Farm {
             animals.add("Moutons");
         }
         if (this.babyGoatCount.getValue() > 0) {
-            animals.add("Chèvres");
+            animals.add("Chevres");
         }
         if (this.babyPigCount.getValue() > 0) {
             animals.add("Cochons");
