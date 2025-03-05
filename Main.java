@@ -36,6 +36,36 @@ public class Main extends Application {
     private Label maizeHarvest;
     @FXML
     private Label soyHarvest;
+    @FXML
+    private Label cowCount;
+    @FXML
+    private Label sheepCount;
+    @FXML
+    private Label goatCount;
+    @FXML
+    private Label pigCount;
+    @FXML
+    private Label chickenCount;
+    @FXML
+    private Label babyCowCount;
+    @FXML
+    private Label babySheepCount;
+    @FXML
+    private Label babyGoatCount;
+    @FXML
+    private Label babyPigCount;
+    @FXML
+    private Label babyChickenCount;
+    @FXML
+    private Label milkCount;
+    @FXML
+    private Label woolCount;
+    @FXML
+    private Label goatMilkCount;
+    @FXML
+    private Label sausagesCount;
+    @FXML
+    private Label eggsCount;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -62,6 +92,21 @@ public class Main extends Application {
         rapeseedHarvest.textProperty().bind(farm.getRapeseedHarvestProperty().asString());
         maizeHarvest.textProperty().bind(farm.getMaizeHarvestProperty().asString());
         soyHarvest.textProperty().bind(farm.getSoyHarvestProperty().asString());
+        cowCount.textProperty().bind(farm.getCowProperty().asString());
+        sheepCount.textProperty().bind(farm.getSheepProperty().asString());
+        goatCount.textProperty().bind(farm.getGoatProperty().asString());
+        pigCount.textProperty().bind(farm.getPigProperty().asString());
+        chickenCount.textProperty().bind(farm.getChickenProperty().asString());
+        babyCowCount.textProperty().bind(farm.getBabyCowProperty().asString());
+        babySheepCount.textProperty().bind(farm.getBabySheepProperty().asString());
+        babyGoatCount.textProperty().bind(farm.getBabyGoatProperty().asString());
+        babyPigCount.textProperty().bind(farm.getBabyPigProperty().asString());
+        babyChickenCount.textProperty().bind(farm.getBabyChickenProperty().asString());
+        milkCount.textProperty().bind(farm.getMilkProperty().asString());
+        woolCount.textProperty().bind(farm.getWoolProperty().asString());
+        goatMilkCount.textProperty().bind(farm.getGoatMilkProperty().asString());
+        sausagesCount.textProperty().bind(farm.getSausagesProperty().asString());
+        eggsCount.textProperty().bind(farm.getEggsProperty().asString());
 
         Path pathToSave = Path.of("./save/farm.json");
 
@@ -81,6 +126,11 @@ public class Main extends Application {
         farm.setBarleySeed(200);
         farm.setMaizeSeed(200);
         farm.setRapeseedSeed(200);
+        farm.setBabyCowCount(10);
+        farm.setBabySheepCount(10);
+        farm.setBabyGoatCount(10);
+        farm.setBabyPigCount(10);
+        farm.setBabyChickenCount(10);
         if (Files.exists(pathToSave)) {
 
         }

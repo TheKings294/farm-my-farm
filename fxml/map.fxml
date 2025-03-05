@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -13,9 +14,12 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Label layoutX="3.0" layoutY="56.0" prefHeight="17.0" prefWidth="112.0" text="Bank Account :" />
+            <Label layoutX="3.0" layoutY="33.0" prefHeight="17.0" prefWidth="74.0" text="Bank Account :">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
             <Label alignment="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="114.0" text="Farm My Farm" textAlignment="CENTER" />
-            <VBox layoutX="10.0" layoutY="89.0" prefHeight="89.0" prefWidth="100.0" spacing="10.0">
+            <VBox layoutX="9.0" layoutY="58.0" prefHeight="89.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Graines :">
                      <font>
@@ -49,7 +53,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="9.0" layoutY="242.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+            <VBox layoutX="8.0" layoutY="201.0" prefHeight="158.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Recoltes :">
                      <font>
@@ -81,6 +85,194 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="8.0" layoutY="364.0" prefHeight="171.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="99.0" text="Animaux :">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="40.0" text="Vaches :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="cowCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="babyCowCount" prefHeight="17.0" prefWidth="22.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="45.0" text="Moutons :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sheepCount" prefHeight="17.0" prefWidth="22.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="babySheepCount" prefHeight="17.0" prefWidth="25.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="43.0" text="Chèvres :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="goatCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="babyGoatCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="2.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="46.0" text="Cochons :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pigCount" prefHeight="17.0" prefWidth="25.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="babyPigCount" prefHeight="17.0" prefWidth="21.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="36.0" text="Poules :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="chickenCount" prefHeight="17.0" prefWidth="21.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="babyChickenCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="bankAccount" layoutX="74.0" layoutY="33.0" prefHeight="17.0" prefWidth="41.0" text="000">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <VBox layoutX="9.0" layoutY="534.0" prefHeight="171.0" prefWidth="100.0" spacing="7.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="99.0" text="Production animaux :">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="40.0" text="Lait :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="milkCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="45.0" text="Laines :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="woolCount" prefHeight="17.0" prefWidth="22.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="71.0" text="Lait de chèvres :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="goatMilkCount" prefHeight="17.0" prefWidth="23.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="2.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="54.0" text="Saussices :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="sausagesCount" prefHeight="17.0" prefWidth="25.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="20.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="36.0" text="Oeufs :">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="eggsCount" prefHeight="17.0" prefWidth="21.0" text="00">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children></AnchorPane>

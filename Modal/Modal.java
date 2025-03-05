@@ -1,6 +1,7 @@
 package Modal;
 
 import Farm.Farm;
+import animals.Cow;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,7 +36,9 @@ public class Modal {
             Modal modal = fxmlLoader.getController();
 
             modal.initializeComboBax(farm.getSeed());
+            modal.initializeComboAnimals(farm.getAnimals());
             modal.initializeSeedBtn(button, farm);
+            modal.initializeAnimalsBtn(button, farm);
 
             Stage modalStage = new Stage();
             modalStage.initModality(Modality.APPLICATION_MODAL);
@@ -92,6 +95,21 @@ public class Modal {
                    default:
                        break;
                }
+            });
+        }
+    }
+    public void initializeAnimalsBtn(Button Btn, Farm farm) {
+        if (animalsBtn != null) {
+            animalsBtn.setOnMouseClicked(e -> {
+                switch (ComboBoxAnimals.getValue()) {
+                    case "Vaches":
+                        Cow cow = new Cow("Vache", 10, 10, "Lait");
+                        cow.install(farm, Btn);
+                        closeModal();
+                        break;
+                    default:
+                        break;
+                }
             });
         }
     }

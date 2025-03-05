@@ -27,7 +27,7 @@ public class Maize extends Vegetal {
                 this.harvest(farm,button, dbName);
             });
         }));
-        farm.setMaizeSeed(farm.getWheatSeed() - 10);
+        farm.setMaizeSeed(farm.getMaizeSeed() - 10);
         timeline.setCycleCount(1);
         timeline.play();
     }

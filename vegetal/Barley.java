@@ -27,7 +27,7 @@ public class Barley extends Vegetal {
                 this.harvest(farm,button, dbName);
             });
         }));
-        farm.setBarleySeed(farm.getWheatSeed() - 10);
+        farm.setBarleySeed(farm.getBarleySeed() - 10);
         timeline.setCycleCount(1);
         timeline.play();
     }

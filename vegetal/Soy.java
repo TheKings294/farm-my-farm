@@ -27,7 +27,7 @@ public class Soy extends Vegetal {
                 this.harvest(farm,button, dbName);
             });
         }));
-        farm.setSoySeed(farm.getWheatSeed() - 10);
+        farm.setSoySeed(farm.getSoySeed() - 10);
         timeline.setCycleCount(1);
         timeline.play();
     }

@@ -27,7 +27,7 @@ public class Rapeseed extends Vegetal {
                 this.harvest(farm,button, dbName);
             });
         }));
-        farm.setRapeseedSeed(farm.getWheatSeed() - 10);
+        farm.setRapeseedSeed(farm.getRapeseedSeed() - 10);
         timeline.setCycleCount(1);
         timeline.play();
     }

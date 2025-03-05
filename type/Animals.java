@@ -1,12 +1,17 @@
 package type;
 
-public abstract class Animals {
-    private String type;
-    private int timeToGrow;
-    private int production;
-    private String productionType;
-    private String[] images;
+import Farm.Farm;
+import javafx.scene.control.Button;
 
-    public abstract void install();
-    public abstract void collectProduction();
+public abstract class Animals {
+    protected String type;
+    protected int timeToGrow;
+    protected int production;
+    protected String productionType;
+    protected String[] images;
+
+    public abstract void install(Farm farm, Button button);
+    protected abstract void grow(Farm farm, Button button);
+    protected abstract void productions(Farm farm, Button button);
+    public abstract void collectProduction(Farm farm);
 }
