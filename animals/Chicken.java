@@ -1,6 +1,7 @@
 package animals;
 
 import Farm.Farm;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Button;
@@ -8,11 +9,13 @@ import javafx.util.Duration;
 import type.Animals;
 
 public class Chicken extends Animals {
+    public static int numberOfChickens = 0;
     public Chicken(String type, int timeToGrow, int production, String productionType) {
         this.type = type;
         this.timeToGrow = timeToGrow;
         this.production = production;
         this.productionType = productionType;
+        numberOfChickens += 1;
     }
     @Override
     public void install(Farm farm, Button button) {
@@ -41,12 +44,17 @@ public class Chicken extends Animals {
     protected void productions(Farm farm, Button button) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(production), event -> {
             this.collectProduction(farm);
-            if (farm.getWheatHarvest() >= 10) {
-                farm.setWheatHarvest(farm.getWheatHarvest() - 10);
-                this.productions(farm, button);
-            }
+            farm.setWheatHarvest(farm.getWheatHarvest() - 10);
         }));
-        timeline.setCycleCount(1);
+        timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
+        farm.getWheatHarvestProperty().addListener((observable, oldValue, newValue) -> {
+            if (farm.getWheatHarvest() < 10) {
+                timeline.stop();
+            } else if (farm.getWheatHarvest() >= 10 * numberOfChickens) {
+                timeline.play();
+            }
+        });
     }
 }

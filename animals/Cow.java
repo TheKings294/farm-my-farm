@@ -8,11 +8,13 @@ import type.Animals;
 import javafx.scene.control.Button;
 
 public class Cow extends Animals {
+    public static int numberOfCows = 0;
     public Cow(String type, int timeToGrow, int production, String productionType) {
         this.type = type;
         this.timeToGrow = timeToGrow;
         this.production = production;
         this.productionType = productionType;
+        numberOfCows += 1;
     }
     @Override
     public void install(Farm farm, Button button) {
@@ -48,5 +50,20 @@ public class Cow extends Animals {
         }));
         timeline.setCycleCount(1);
         timeline.play();
+
+        farm.getWheatHarvestProperty().addListener((observable, oldValue, newValue) -> {
+            if (farm.getWheatHarvest() < 10) {
+                timeline.stop();
+            } else if (farm.getWheatHarvest() >= 10 * numberOfCows && farm.getMaizeHarvest() >= 10 * numberOfCows) {
+                timeline.play();
+            }
+        });
+        farm.getMaizeHarvestProperty().addListener((observable, oldValue, newValue) -> {
+            if (farm.getMaizeHarvest() < 10) {
+                timeline.stop();
+            } else if (farm.getWheatHarvest() >= 10 * numberOfCows && farm.getMaizeHarvest() >= 10 * numberOfCows) {
+                timeline.play();
+            }
+        });
     }
 }

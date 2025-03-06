@@ -8,11 +8,13 @@ import javafx.util.Duration;
 import type.Animals;
 
 public class Pig extends Animals {
+    public static int numberOfPigs = 0;
     public Pig(String type, int timeToGrow, int production, String productionType) {
         this.type = type;
         this.timeToGrow = timeToGrow;
         this.production = production;
         this.productionType = productionType;
+        numberOfPigs += 1;
     }
     @Override
     public void install(Farm farm, Button button) {
@@ -53,5 +55,20 @@ public class Pig extends Animals {
         }));
         timeline.setCycleCount(1);
         timeline.play();
+
+        farm.getMaizeHarvestProperty().addListener((observable, oldValue, newValue) -> {
+            if (farm.getMaizeHarvest() < 10 && farm.getBarleyHarvest() < 10) {
+                timeline.stop();
+            } else if (farm.getMaizeHarvest() >= 10) {
+                timeline.play();
+            }
+        });
+        farm.getBarleyHarvestProperty().addListener((observable, oldValue, newValue) -> {
+            if (farm.getBarleyHarvest() < 10 && farm.getMaizeHarvest() >= 10) {
+                timeline.stop();
+            } else if (farm.getBarleyHarvest() >= 10) {
+                timeline.play();
+            }
+        });
     }
 }

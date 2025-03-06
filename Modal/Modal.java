@@ -69,7 +69,7 @@ public class Modal {
                switch (comboBoxVegetal.getValue()) {
                    case "Ble":
                        if (farm.getWheatSeed() >= 10) {
-                           Wheat wheat = new Wheat("Céréale", 110, 20);
+                           Wheat wheat = new Wheat("Céréale", 110, 5);
                            wheat.plant(Btn, farm);
                            closeModal();
                        }
@@ -146,7 +146,7 @@ public class Modal {
                         break;
                     case "Poules":
                         if (farm.getWheatSeed() >= 10) {
-                            Chicken chicken = new Chicken("Poules", 10, 10, "Oeufs");
+                            Chicken chicken = new Chicken("Poules", 10, 5, "Oeufs");
                             chicken.install(farm, Btn);
                             closeModal();
                         }
