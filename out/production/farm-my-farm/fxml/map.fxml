@@ -276,7 +276,8 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="shopBtn" layoutX="25.0" layoutY="671.0" mnemonicParsing="false" text="Magasin" />
+            <Button fx:id="shopBtn" layoutX="2.0" layoutY="671.0" mnemonicParsing="false" text="Magasin" />
+            <Button fx:id="saveBtn" layoutX="72.0" layoutY="670.0" mnemonicParsing="false" text="Save" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>

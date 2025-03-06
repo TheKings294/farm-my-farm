@@ -16,8 +16,10 @@ public class Sheep extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        this.grow(farm, button);
-        button.setText("m");
+        if (farm.getBarleyHarvest() >= 10) {
+            this.grow(farm, button);
+            button.setText("m");
+        }
     }
     @Override
     public void collectProduction(Farm farm) {

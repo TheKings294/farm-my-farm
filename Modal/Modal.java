@@ -68,29 +68,39 @@ public class Modal {
             seedBtn.setOnMouseClicked(e -> {
                switch (comboBoxVegetal.getValue()) {
                    case "Ble":
-                       Wheat wheat = new Wheat("Céréale", 100, 20);
-                       wheat.plant(Btn, farm);
-                       closeModal();
+                       if (farm.getWheatSeed() >= 10) {
+                           Wheat wheat = new Wheat("Céréale", 110, 20);
+                           wheat.plant(Btn, farm);
+                           closeModal();
+                       }
                        break;
                    case "Orge":
-                       Barley barley = new Barley("Céréale", 100, 20);
-                       barley.plant(Btn, farm);
-                       closeModal();
+                       if (farm.getBarleySeed() >= 10) {
+                           Barley barley = new Barley("Céréale", 80, 20);
+                           barley.plant(Btn, farm);
+                           closeModal();
+                       }
                        break;
                    case "Colza":
-                       Rapeseed rapeseed = new Rapeseed("Céréale", 100, 20);
-                       rapeseed.plant(Btn, farm);
-                       closeModal();
+                       if (farm.getRapeseedSeed() >= 10) {
+                           Rapeseed rapeseed = new Rapeseed("Céréale", 80, 20);
+                           rapeseed.plant(Btn, farm);
+                           closeModal();
+                       }
                        break;
                    case "Mais":
-                       Maize maize = new Maize("Céréale", 100, 20);
-                       maize.plant(Btn, farm);
-                       closeModal();
+                       if (farm.getMaizeSeed() >= 10) {
+                           Maize maize = new Maize("Céréale", 60, 20);
+                           maize.plant(Btn, farm);
+                           closeModal();
+                       }
                        break;
                    case "Soja":
-                       Soy soy = new Soy("Céréale", 100, 20);
-                       soy.plant(Btn, farm);
-                       closeModal();
+                       if (farm.getSoySeed() >= 10) {
+                           Soy soy = new Soy("Céréale", 40, 20);
+                           soy.plant(Btn, farm);
+                           closeModal();
+                       }
                        break;
                    default:
                        break;
@@ -103,29 +113,43 @@ public class Modal {
             animalsBtn.setOnMouseClicked(e -> {
                 switch (ComboBoxAnimals.getValue()) {
                     case "Vaches":
-                        Cow cow = new Cow("Vache", 10, 10, "Lait");
-                        cow.install(farm, Btn);
-                        closeModal();
+                        if (farm.getWheatHarvest() >= 10 && farm.getMaizeHarvest() >= 10) {
+                            Cow cow = new Cow("Vache", 10, 10, "Lait");
+                            cow.install(farm, Btn);
+                            closeModal();
+                        }
                         break;
                     case "Moutons":
-                        Sheep sheep = new Sheep("Vache", 10, 10, "Lait");
-                        sheep.install(farm, Btn);
-                        closeModal();
+                        if (farm.getBarleySeed() >= 10) {
+                            Sheep sheep = new Sheep("Moutons", 10, 10, "Laine");
+                            sheep.install(farm, Btn);
+                            closeModal();
+                        }
                         break;
                     case "Chevres":
-                        Goat goat = new Goat("Vache", 10, 10, "Lait");
-                        goat.install(farm, Btn);
-                        closeModal();
+                        if (farm.getRapeseedHarvest() >= 10) {
+                            Goat goat = new Goat("Chevres", 10, 10, "Lait");
+                            goat.install(farm, Btn);
+                            closeModal();
+                        }
                         break;
                     case "Cochons":
-                        Pig pig = new Pig("Vache", 10, 10, "Lait");
-                        pig.install(farm, Btn);
-                        closeModal();
+                        if (farm.getMaizeHarvest() >= 10) {
+                            Pig pig = new Pig("Cochons", 10, 10, "Saucisse");
+                            pig.install(farm, Btn);
+                            closeModal();
+                        } else if (farm.getBarleyHarvest() >= 10) {
+                            Pig pig = new Pig("Cochons", 10, 10, "Saucisse");
+                            pig.install(farm, Btn);
+                            closeModal();
+                        }
                         break;
                     case "Poules":
-                        Chicken chicken = new Chicken("Vache", 10, 10, "Lait");
-                        chicken.install(farm, Btn);
-                        closeModal();
+                        if (farm.getWheatSeed() >= 10) {
+                            Chicken chicken = new Chicken("Poules", 10, 10, "Oeufs");
+                            chicken.install(farm, Btn);
+                            closeModal();
+                        }
                         break;
                     default:
                         break;

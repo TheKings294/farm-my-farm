@@ -1,0 +1,26 @@
+money:350
+wheatSeed: 30
+barleySeed: 0
+rapeseedSeed0
+maizeSeed: 0
+soySeed: 0
+wheatHarvest: 0
+barleyHarvest: 0
+rapeseedHarvest:0
+maizeHarvest:0
+soyHarvest:0
+cow:0
+sheep:0
+goat:0
+pig:0
+chicken:0
+babyCow:0
+babySheep:0
+babyGoat:0
+babyPig:0
+babyChicken:0
+milk:0
+wool:0
+goatMilk:0
+sausages:0
+eggs:0

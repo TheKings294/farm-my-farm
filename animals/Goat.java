@@ -16,8 +16,10 @@ public class Goat extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        this.grow(farm, button);
-        button.setText("c");
+        if (farm.getRapeseedHarvest() >= 10) {
+            this.grow(farm, button);
+            button.setText("c");
+        }
     }
     @Override
     public void collectProduction(Farm farm) {

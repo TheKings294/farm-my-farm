@@ -16,8 +16,10 @@ public class Cow extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        this.grow(farm, button);
-        button.setText("v");
+        if (farm.getWheatHarvest() >= 10 && farm.getMaizeHarvest() >= 10) {
+            this.grow(farm, button);
+            button.setText("v");
+        }
     }
     @Override
     public void collectProduction(Farm farm) {

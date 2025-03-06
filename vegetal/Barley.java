@@ -17,7 +17,7 @@ public class Barley extends Vegetal {
     }
     @Override
     public void plant(Button button, Farm farm) {
-        if (farm.getWheatSeed() >= 10) {
+        if (farm.getBarleySeed() >= 10) {
             String dbName = button.getText();
             button.setText("o");
             button.setDisable(true);

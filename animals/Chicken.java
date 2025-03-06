@@ -16,7 +16,7 @@ public class Chicken extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        if (farm.getWheatHarvest() > 10) {
+        if (farm.getWheatHarvest() >= 10) {
             this.grow(farm, button);
             button.setText("c");
         }

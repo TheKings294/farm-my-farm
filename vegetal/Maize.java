@@ -17,7 +17,7 @@ public class Maize extends Vegetal {
     }
     @Override
     public void plant(Button button, Farm farm) {
-        if (farm.getBarleyHarvest() >= 10) {
+        if (farm.getMaizeSeed() >= 10) {
             String dbName = button.getText();
             button.setText("m");
             button.setDisable(true);

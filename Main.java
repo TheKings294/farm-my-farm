@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import save.Save;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -71,6 +72,8 @@ public class Main extends Application {
     private Button shopBtn;
     @FXML
     private Label bankAccount;
+    @FXML
+    private Button saveBtn;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -87,6 +90,7 @@ public class Main extends Application {
     }
     public void initialize() {
         Farm farm = new Farm(500);
+        Save save = new Save();
         wheatSeed.textProperty().bind(farm.getWheatSeedProperty().asString());
         barleySeed.textProperty().bind(farm.getBarleySeedProperty().asString());
         rapeseedSeed.textProperty().bind(farm.getRapeseedSeedProperty().asString());
@@ -114,7 +118,7 @@ public class Main extends Application {
         eggsCount.textProperty().bind(farm.getEggsProperty().asString());
         bankAccount.textProperty().bind(farm.BankAcountProperty().asString());
 
-        Path pathToSave = Path.of("./save/farm.json");
+        Path pathToSave = Path.of("./save/save.txt");
 
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 18; j++) {
@@ -130,8 +134,11 @@ public class Main extends Application {
         shopBtn.setOnAction(e -> {
             Shop.showShop(farm);
         });
+        saveBtn.setOnAction(e -> {
+            save.SaveGame(farm);
+        });
 
-        farm.setWheatSeed(200);
+        /*farm.setWheatSeed(200);
         farm.setSoySeed(200);
         farm.setBarleySeed(200);
         farm.setMaizeSeed(200);
@@ -140,9 +147,9 @@ public class Main extends Application {
         farm.setBabySheepCount(10);
         farm.setBabyGoatCount(10);
         farm.setBabyPigCount(10);
-        farm.setBabyChickenCount(10);
+        farm.setBabyChickenCount(10);*/
         if (Files.exists(pathToSave)) {
-
+            save.LoadGame();
         }
     }
     public static void main(String[] args) {

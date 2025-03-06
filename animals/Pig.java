@@ -16,8 +16,13 @@ public class Pig extends Animals {
     }
     @Override
     public void install(Farm farm, Button button) {
-        this.grow(farm, button);
-        button.setText("c");
+        if (farm.getMaizeHarvest() >= 10) {
+            this.grow(farm, button);
+            button.setText("c");
+        } else if (farm.getBarleyHarvest() >= 10) {
+            this.grow(farm, button);
+            button.setText("c");
+        }
     }
     @Override
     public void collectProduction(Farm farm) {
