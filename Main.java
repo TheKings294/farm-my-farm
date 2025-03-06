@@ -1,5 +1,6 @@
 import Farm.Farm;
 import Modal.Modal;
+import Shop.Shop;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,10 @@ public class Main extends Application {
     private Label sausagesCount;
     @FXML
     private Label eggsCount;
+    @FXML
+    private Button shopBtn;
+    @FXML
+    private Label bankAccount;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -107,6 +112,7 @@ public class Main extends Application {
         goatMilkCount.textProperty().bind(farm.getGoatMilkProperty().asString());
         sausagesCount.textProperty().bind(farm.getSausagesProperty().asString());
         eggsCount.textProperty().bind(farm.getEggsProperty().asString());
+        bankAccount.textProperty().bind(farm.BankAcountProperty().asString());
 
         Path pathToSave = Path.of("./save/farm.json");
 
@@ -120,6 +126,10 @@ public class Main extends Application {
                 gridPane.add(button, i, j);
             }
         }
+
+        shopBtn.setOnAction(e -> {
+            Shop.showShop(farm);
+        });
 
         farm.setWheatSeed(200);
         farm.setSoySeed(200);

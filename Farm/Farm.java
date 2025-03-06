@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Farm {
-    private int BankAcount;
+    private IntegerProperty BankAcount = new SimpleIntegerProperty();
 
     /*Seed stock*/
     private IntegerProperty wheatSeed = new SimpleIntegerProperty();
@@ -43,7 +43,16 @@ public class Farm {
     private IntegerProperty eggsCount = new SimpleIntegerProperty();
 
     public Farm(int bankAcount) {
-        this.BankAcount = bankAcount;
+        this.BankAcount.set(bankAcount);
+    }
+    public int getBankAcount() {
+        return BankAcount.getValue();
+    }
+    public void setBankAcount(int BankAcount) {
+        this.BankAcount.set(BankAcount);
+    }
+    public IntegerProperty BankAcountProperty() {
+        return BankAcount;
     }
 
     public void setWheatSeed(int wheatSeed) {
