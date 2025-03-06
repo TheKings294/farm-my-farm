@@ -1,7 +1,7 @@
 money:350
 wheatSeed: 30
 barleySeed: 0
-rapeseedSeed0
+rapeseedSeed:0
 maizeSeed: 0
 soySeed: 0
 wheatHarvest: 0

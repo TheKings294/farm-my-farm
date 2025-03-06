@@ -41,10 +41,7 @@ public class Farm {
     private IntegerProperty goatMilkCount = new SimpleIntegerProperty();
     private IntegerProperty sausagesCount = new SimpleIntegerProperty();
     private IntegerProperty eggsCount = new SimpleIntegerProperty();
-
-    public Farm(int bankAcount) {
-        this.BankAcount.set(bankAcount);
-    }
+    
     public int getBankAcount() {
         return BankAcount.getValue();
     }

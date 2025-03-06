@@ -74,6 +74,8 @@ public class Main extends Application {
     private Label bankAccount;
     @FXML
     private Button saveBtn;
+    @FXML
+    private SplitPane root;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -89,7 +91,8 @@ public class Main extends Application {
         }
     }
     public void initialize() {
-        Farm farm = new Farm(500);
+        Farm farm = new Farm();
+        farm.setBankAcount(500);
         Save save = new Save();
         wheatSeed.textProperty().bind(farm.getWheatSeedProperty().asString());
         barleySeed.textProperty().bind(farm.getBarleySeedProperty().asString());
@@ -138,18 +141,8 @@ public class Main extends Application {
             save.SaveGame(farm);
         });
 
-        /*farm.setWheatSeed(200);
-        farm.setSoySeed(200);
-        farm.setBarleySeed(200);
-        farm.setMaizeSeed(200);
-        farm.setRapeseedSeed(200);
-        farm.setBabyCowCount(10);
-        farm.setBabySheepCount(10);
-        farm.setBabyGoatCount(10);
-        farm.setBabyPigCount(10);
-        farm.setBabyChickenCount(10);*/
         if (Files.exists(pathToSave)) {
-            save.LoadGame();
+            save.LoadGame(farm);
         }
     }
     public static void main(String[] args) {
