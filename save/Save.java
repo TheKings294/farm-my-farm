@@ -1,6 +1,12 @@
 package save;
 
 import Farm.Farm;
+import Modal.Modal;
+import board.Board;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Save {
-    public void LoadGame(Farm farm) {
+    public void LoadGame(Farm farm, Board board) {
         try(BufferedReader fileReader = new BufferedReader(new FileReader("./save/save.txt"))) {
             String line;
             ArrayList<Integer> values = new ArrayList<>();
@@ -45,11 +51,18 @@ public class Save {
             farm.setGoatMilkCount(values.get(23));
             farm.setSausagesCount(values.get(24));
             farm.setEggsCount(values.get(25));
+            board.setTotalBuy(values.get(26));
+            board.setTotalSell(values.get(27));
+            board.setTotalMilkProduced(values.get(28));
+            board.setTotalWoolProduced(values.get(29));
+            board.setTotalGoatMilkProduced(values.get(30));
+            board.setTotalSaussagesProduced(values.get(31));
+            board.setTotalEggsProduced(values.get(32));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void SaveGame(Farm farm) {
+    public void SaveGame(Farm farm, Board board, GridPane pane) {
         try(FileWriter fileWriter = new FileWriter("./save/save.txt")) {
             fileWriter.write("money:" + farm.getBankAcount() + "\n");
             fileWriter.write("wheatSeed: " + farm.getWheatSeed() + "\n");
@@ -77,8 +90,28 @@ public class Save {
             fileWriter.write("goatMilk:" + farm.getGoatMilkCount() + "\n");
             fileWriter.write("sausages:" + farm.getSausagesCount() + "\n");
             fileWriter.write("eggs:" + farm.getEggsCount() + "\n");
+            fileWriter.write("totalBuy:" + board.getTotalBuy() + "\n");
+            fileWriter.write("totalSell:" + board.getTotalSell() + "\n");
+            fileWriter.write("totalMilk:" + board.getTotalMilkProduced() + "\n");
+            fileWriter.write("totalWool:" + board.getTotalWoolProduced() + "\n");
+            fileWriter.write("totalGoatMilk:" + board.getTotalGoatMilkProduced() + "\n");
+            fileWriter.write("totalSausasges:" + board.getTotalSaussagesProduced() + "\n");
+            fileWriter.write("totalEggs:" + board.getTotalEggsProduced() + "\n");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        try(FileWriter fileWriter = new FileWriter("./save/map.txt")) {
+            for (Node node : pane.getChildren()) {
+                if (node instanceof Button) {
+                    Button btn = (Button) node;
+                    int codePoint = btn.getText().codePointAt(0);
+                    if (codePoint >= 0x1F600 && codePoint <= 0x1F64F) {
+                        fileWriter.write(GridPane.getRowIndex(btn) + ',' + GridPane.getColumnIndex(btn) + ',' + btn.getText());
+                    }
+                }
+            }
+        } catch (IOException event) {
+            event.printStackTrace();
         }
     }
 }

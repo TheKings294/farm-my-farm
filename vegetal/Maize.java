@@ -1,6 +1,7 @@
 package vegetal;
 
 import Modal.Modal;
+import board.Board;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Button;
@@ -16,7 +17,7 @@ public class Maize extends Vegetal {
         this.timeToGrowth = time;
     }
     @Override
-    public void plant(Button button, Farm farm) {
+    public void plant(Button button, Farm farm, Board board) {
         if (farm.getMaizeSeed() >= 10) {
             String dbName = button.getText();
             button.setText("m");
@@ -25,7 +26,7 @@ public class Maize extends Vegetal {
                 button.setText("M");
                 button.setDisable(false);
                 button.setOnAction(event -> {
-                    this.harvest(farm,button, dbName);
+                    this.harvest(farm,button, dbName, board);
                 });
             }));
             farm.setMaizeSeed(farm.getMaizeSeed() - 10);
@@ -34,11 +35,11 @@ public class Maize extends Vegetal {
         }
     }
     @Override
-    public void harvest(Farm farm, Button btn, String btnName) {
+    public void harvest(Farm farm, Button btn, String btnName, Board board) {
         farm.setMaizeHarvest(farm.getMaizeHarvest() + (1 * this.yield));
         btn.setText(btnName);
         btn.setOnAction(e -> {
-            Modal.showModal(btn.getText(), farm, (Button) e.getSource());
+            Modal.showModal(btn.getText(), farm, (Button) e.getSource(), board);
         });
     }
 }

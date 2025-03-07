@@ -1,6 +1,8 @@
 import Farm.Farm;
 import Modal.Modal;
 import Shop.Shop;
+import board.Board;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import save.Save;
 
@@ -76,6 +79,8 @@ public class Main extends Application {
     private Button saveBtn;
     @FXML
     private SplitPane root;
+    @FXML
+    private Button boardBtn;
     @Override
     public void start(Stage primaryStage) {
         try {
@@ -94,6 +99,7 @@ public class Main extends Application {
         Farm farm = new Farm();
         farm.setBankAcount(500);
         Save save = new Save();
+        Board board = new Board();
         wheatSeed.textProperty().bind(farm.getWheatSeedProperty().asString());
         barleySeed.textProperty().bind(farm.getBarleySeedProperty().asString());
         rapeseedSeed.textProperty().bind(farm.getRapeseedSeedProperty().asString());
@@ -126,23 +132,30 @@ public class Main extends Application {
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 18; j++) {
                 Button button = new Button();
+                GridPane.setHgrow(button, Priority.ALWAYS);
+                GridPane.setVgrow(button, Priority.ALWAYS);
+                button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+                button.setStyle("-fx-background-color: #825014;");
                 button.setText(i + "-" + j);
                 button.setOnAction(e -> {
-                   Modal.showModal(button.getText(), farm, (Button) e.getSource());
+                   Modal.showModal(button.getText(), farm, (Button) e.getSource(), board);
                 });
                 gridPane.add(button, i, j);
             }
         }
 
         shopBtn.setOnAction(e -> {
-            Shop.showShop(farm);
+            Shop.showShop(farm, board);
         });
         saveBtn.setOnAction(e -> {
-            save.SaveGame(farm);
+            save.SaveGame(farm, board, gridPane);
+        });
+        boardBtn.setOnAction(e -> {
+            Board.showBoard(farm, board);
         });
 
         if (Files.exists(pathToSave)) {
-            save.LoadGame(farm);
+            save.LoadGame(farm, board);
         }
         farm.setBankAcount(100000);
     }

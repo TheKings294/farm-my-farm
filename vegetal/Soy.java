@@ -1,6 +1,7 @@
 package vegetal;
 
 import Modal.Modal;
+import board.Board;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Button;
@@ -16,7 +17,7 @@ public class Soy extends Vegetal {
         this.timeToGrowth = time;
     }
     @Override
-    public void plant(Button button, Farm farm) {
+    public void plant(Button button, Farm farm, Board board) {
         if (farm.getSoySeed() >= 10) {
             String dbName = button.getText();
             button.setText("s");
@@ -25,7 +26,7 @@ public class Soy extends Vegetal {
                 button.setText("S");
                 button.setDisable(false);
                 button.setOnAction(event -> {
-                    this.harvest(farm,button, dbName);
+                    this.harvest(farm,button, dbName, board);
                 });
             }));
             farm.setSoySeed(farm.getSoySeed() - 10);
@@ -34,11 +35,11 @@ public class Soy extends Vegetal {
         }
     }
     @Override
-    public void harvest(Farm farm, Button btn, String btnName) {
+    public void harvest(Farm farm, Button btn, String btnName, Board board) {
         farm.setSoyHarvest(farm.getSoyHarvest() + (1 * this.yield));
         btn.setText(btnName);
         btn.setOnAction(e -> {
-            Modal.showModal(btn.getText(), farm, (Button) e.getSource());
+            Modal.showModal(btn.getText(), farm, (Button) e.getSource(), board);
         });
     }
 }

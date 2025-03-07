@@ -1,8 +1,8 @@
-money:350
-wheatSeed: 30
-barleySeed: 0
-rapeseedSeed:0
-maizeSeed: 0
+money:99500
+wheatSeed: 10
+barleySeed: 20
+rapeseedSeed:30
+maizeSeed: 20
 soySeed: 0
 wheatHarvest: 0
 barleyHarvest: 0
@@ -24,3 +24,10 @@ wool:0
 goatMilk:0
 sausages:0
 eggs:0
+totalBuy:500
+totalSell:0
+totalMilk:0
+totalWool:0
+totalGoatMilk:0
+totalSausasges:0
+totalEggs:0

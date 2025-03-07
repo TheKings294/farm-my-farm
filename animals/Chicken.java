@@ -2,6 +2,7 @@ package animals;
 
 import Farm.Farm;
 import Modal.ModalAnimal;
+import board.Board;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -19,40 +20,41 @@ public class Chicken extends Animals {
         numberOfChickens += 1;
     }
     @Override
-    public void install(Farm farm, Button button) {
+    public void install(Farm farm, Button button, Board board) {
         if (farm.getWheatHarvest() >= 10) {
             this.BtnName = button.getText();
-            this.grow(farm, button);
-            button.setText("c");
+            this.grow(farm, button, board);
+            button.setText("🐥");
         }
     }
     @Override
-    public void collectProduction(Farm farm) {
+    public void collectProduction(Farm farm, Board board) {
         farm.setEggsCount(farm.getEggsCount() + 1);
+        board.setTotalEggsProduced(board.getTotalEggsProduced() + 1);
     }
     @Override
-    protected void grow(Farm farm, Button button) {
+    protected void grow(Farm farm, Button button, Board board) {
         farm.setWheatHarvest(farm.getWheatHarvest() - 10);
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(timeToGrow), event -> {
-            this.productions(farm, button);
+            this.productions(farm, button, board);
             farm.setBabyChickenCount(farm.getBabyChickenCount() - 1);
             farm.setChickenCount(farm.getChickenCount() + 1);
-            button.setText("C");
+            button.setText("🐓");
         }));
         timeline.setCycleCount(1);
         timeline.play();
     }
     @Override
-    protected void productions(Farm farm, Button button) {
+    protected void productions(Farm farm, Button button, Board board) {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(production), event -> {
-            this.collectProduction(farm);
+            this.collectProduction(farm, board);
             farm.setWheatHarvest(farm.getWheatHarvest() - 10);
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
 
         button.setOnAction(event -> {
-            ModalAnimal.showModal("Poules", Integer.toString(farm.getEggsCount()), button, this.BtnName, farm, timeline);
+            ModalAnimal.showModal("Poules", Integer.toString(farm.getEggsCount()), button, this.BtnName, farm, timeline, board);
         });
 
         farm.getWheatHarvestProperty().addListener((observable, oldValue, newValue) -> {
