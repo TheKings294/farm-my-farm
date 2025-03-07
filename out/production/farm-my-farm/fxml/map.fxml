@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.13795986622073578" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main" fx:id="root">
+<SplitPane fx:id="root" dividerPositions="0.13795986622073578" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -20,7 +20,7 @@
                   <Font size="11.0" />
                </font></Label>
             <Label alignment="CENTER" layoutX="3.0" layoutY="6.0" prefHeight="17.0" prefWidth="114.0" text="Farm My Farm" textAlignment="CENTER" />
-            <VBox layoutX="9.0" layoutY="58.0" prefHeight="89.0" prefWidth="100.0" spacing="10.0">
+            <VBox layoutX="9.0" layoutY="58.0" prefHeight="104.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Graines :">
                      <font>
@@ -54,7 +54,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="8.0" layoutY="201.0" prefHeight="158.0" prefWidth="100.0" spacing="10.0">
+            <VBox layoutX="8.0" layoutY="201.0" prefHeight="114.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Recoltes :">
                      <font>
@@ -88,7 +88,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox layoutX="8.0" layoutY="364.0" prefHeight="171.0" prefWidth="100.0" spacing="10.0">
+            <VBox layoutX="8.0" layoutY="344.0" prefHeight="117.0" prefWidth="100.0" spacing="10.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Animaux :">
                      <font>
@@ -197,7 +197,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <VBox layoutX="9.0" layoutY="534.0" prefHeight="136.0" prefWidth="100.0" spacing="7.0">
+            <VBox layoutX="4.0" layoutY="479.0" prefHeight="136.0" prefWidth="100.0" spacing="7.0">
                <children>
                   <Label prefHeight="17.0" prefWidth="99.0" text="Production animaux :">
                      <font>
@@ -276,8 +276,8 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="shopBtn" layoutX="2.0" layoutY="671.0" mnemonicParsing="false" text="Magasin" />
-            <Button fx:id="saveBtn" layoutX="72.0" layoutY="670.0" mnemonicParsing="false" text="Save" />
+            <Button fx:id="shopBtn" layoutX="6.0" layoutY="631.0" mnemonicParsing="false" text="Magasin" />
+            <Button fx:id="saveBtn" layoutX="7.0" layoutY="664.0" mnemonicParsing="false" text="Save" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>

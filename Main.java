@@ -144,6 +144,7 @@ public class Main extends Application {
         if (Files.exists(pathToSave)) {
             save.LoadGame(farm);
         }
+        farm.setBankAcount(100000);
     }
     public static void main(String[] args) {
         launch(args);

@@ -1,6 +1,7 @@
 package animals;
 
 import Farm.Farm;
+import Modal.ModalAnimal;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -20,6 +21,7 @@ public class Chicken extends Animals {
     @Override
     public void install(Farm farm, Button button) {
         if (farm.getWheatHarvest() >= 10) {
+            this.BtnName = button.getText();
             this.grow(farm, button);
             button.setText("c");
         }
@@ -48,6 +50,10 @@ public class Chicken extends Animals {
         }));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
+
+        button.setOnAction(event -> {
+            ModalAnimal.showModal("Poules", Integer.toString(farm.getEggsCount()), button, this.BtnName, farm, timeline);
+        });
 
         farm.getWheatHarvestProperty().addListener((observable, oldValue, newValue) -> {
             if (farm.getWheatHarvest() < 10) {

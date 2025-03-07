@@ -1,6 +1,7 @@
 package animals;
 
 import Farm.Farm;
+import Modal.ModalAnimal;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.control.Button;
@@ -20,9 +21,11 @@ public class Pig extends Animals {
     public void install(Farm farm, Button button) {
         if (farm.getMaizeHarvest() >= 10) {
             this.grow(farm, button);
+            this.BtnName = button.getText();
             button.setText("c");
         } else if (farm.getBarleyHarvest() >= 10) {
             this.grow(farm, button);
+            this.BtnName = button.getText();
             button.setText("c");
         }
     }
@@ -55,6 +58,10 @@ public class Pig extends Animals {
         }));
         timeline.setCycleCount(1);
         timeline.play();
+
+        button.setOnAction(event -> {
+            ModalAnimal.showModal("Cochons", Integer.toString(farm.getSausagesCount()), button, this.BtnName, farm, timeline);
+        });
 
         farm.getMaizeHarvestProperty().addListener((observable, oldValue, newValue) -> {
             if (farm.getMaizeHarvest() < 10 && farm.getBarleyHarvest() < 10) {
