@@ -50,10 +50,8 @@ public class Pig extends Animals {
             this.collectProduction(farm);
             if (farm.getMaizeHarvest() >= 10) {
                 farm.setMaizeHarvest(farm.getMaizeHarvest() - 10);
-                this.productions(farm, button);
             } else if (farm.getBarleyHarvest() >= 10) {
                 farm.setBarleyHarvest(farm.getBarleyHarvest() - 10);
-                this.productions(farm, button);
             }
         }));
         timeline.setCycleCount(1);

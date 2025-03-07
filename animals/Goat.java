@@ -46,7 +46,6 @@ public class Goat extends Animals {
             this.collectProduction(farm);
             if (farm.getRapeseedHarvest() >= 10) {
                 farm.setRapeseedHarvest(farm.getRapeseedHarvest() - 10);
-                this.productions(farm, button);
             }
         }));
         timeline.setCycleCount(1);

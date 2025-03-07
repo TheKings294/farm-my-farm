@@ -47,7 +47,6 @@ public class Cow extends Animals {
             if (farm.getMaizeHarvest() >= 10 && farm.getWheatHarvest() >= 10) {
                 farm.setWheatHarvest(farm.getWheatHarvest() - 10);
                 farm.setMaizeHarvest(farm.getMaizeHarvest() - 10);
-                this.productions(farm, button);
             }
         }));
         timeline.setCycleCount(1);
